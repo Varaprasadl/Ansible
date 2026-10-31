@@ -1,6 +1,6 @@
 - name: mutiple tasks A
   hosts: local
-  connections: local
+  connection: local
   tasks:
   - name: task A1
     debug:
