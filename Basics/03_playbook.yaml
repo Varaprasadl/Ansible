@@ -1,0 +1,22 @@
+- name: mutiple tasks A
+  hosts: local
+  connections: local
+  tasks:
+  - name: task A1
+    debug:
+      demo: A1
+  - name: task A2
+    debug:
+      demo: A2
+
+- name: mutiple tasks B
+  hosts: local
+  connections: local
+  tasks:
+  - name: task B1
+    debug:
+      demo: B1
+  - name: task B2
+    debug:
+      demo: B2
+  
