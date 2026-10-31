@@ -1,7 +1,7 @@
 - name: variables from another file
   hosts: local
   connection: local
-  - variables.yaml
+  vars_file: variables.yaml
   tasks:
     - name: variables from file
       debug:
