@@ -1,4 +1,7 @@
 - name: varaibles
+  hosts: local
+  connection: local
+
   vars:
     course: devops
     name: prasad
