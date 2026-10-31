@@ -1,7 +1,6 @@
-- name: varaibles
-  # hosts: local
+?  # hosts: local
   # connection: local
   # tasks: variable
-  vars:
+  # vars:
     course: devops
     name: prasad
