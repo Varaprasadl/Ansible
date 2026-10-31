@@ -1,0 +1,11 @@
+- name: variables from the task level
+  hosts: local
+  connection: local
+  tasks:
+    name: task level
+    vars:
+      name: Prasad
+      course: devops
+    debug:
+      msg: "{{name}} learnig {{course}}"
+  
