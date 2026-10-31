@@ -1,0 +1,7 @@
+-name: clone
+hosts: localhosts
+connections: local
+task:
+  name: print
+  debug:
+  msg:
