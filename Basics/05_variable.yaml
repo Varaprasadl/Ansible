@@ -1,5 +1,5 @@
 - name: variables
-  hosts: local
+  hosts: localhost
   vars:
     Name: Prasad
     Course: learing devops from file.
