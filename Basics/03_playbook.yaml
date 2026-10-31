@@ -4,10 +4,10 @@
   tasks:
   - name: task A1
     debug:
-      demo: A1
+      msg: A1
   - name: task A2
     debug:
-      demo: A2
+      msg: A2
 
 - name: mutiple tasks B
   hosts: local
@@ -15,8 +15,8 @@
   tasks:
   - name: task B1
     debug:
-      demo: B1
+      msg: B1
   - name: task B2
     debug:
-      demo: B2
+      msg: B2
   
