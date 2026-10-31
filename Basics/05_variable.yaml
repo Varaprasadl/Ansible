@@ -8,5 +8,5 @@
   tasks:
   - name: variable from file
     debug:
-      msg:"{{Name}} {{course}}"
+      msg: "{{Name}} {{course}}"
       
