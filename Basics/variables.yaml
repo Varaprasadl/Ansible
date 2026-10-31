@@ -1,7 +1,7 @@
 - name: varaibles
   hosts: local
   connection: local
-
+  tasks: variable
   vars:
     course: devops
     name: prasad
