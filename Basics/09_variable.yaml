@@ -1,0 +1,7 @@
+- name: variables from inventory
+  host: local
+  connection: local
+  tasks:
+    - name: variables from inventory
+      debug:
+        msg: "{{name}} learning {{devops}}"
