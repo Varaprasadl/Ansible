@@ -3,7 +3,7 @@
   connection: local
   vars:
     Name: Prasad
-    Course: learing devops from file.
+    course: learing devops from file.
 
   tasks:
   - name: variable from file
