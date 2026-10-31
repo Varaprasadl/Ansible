@@ -2,10 +2,10 @@
   hosts: local
   connection: local
   tasks:
-    name: task level
-    vars:
-      name: Prasad
-      course: devops
-    debug:
-      msg: "{{name}} learnig {{course}}"
+    - name: task level
+      vars:
+        name: Prasad
+        course: devops
+      debug:
+        msg: "{{name}} learnig {{course}}"
   
