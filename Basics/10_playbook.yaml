@@ -1,0 +1,7 @@
+- name: variables from cmd line
+  hosts: local
+  connection: local
+  tasks:
+  - name: variables from cmd line
+    debug:
+      msg: "{{username}}"
