@@ -8,7 +8,6 @@
     debug:
       msg: "My name is {{name}}"
 
-  tasks:
   - name: play2
     vars:
       name: chetan
