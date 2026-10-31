@@ -1,7 +1,6 @@
 - name: demo on debug
   hosts: local
-  conection: local
+  connection: local
   tasks:
   - name: demo on debug
     debug:
-    
