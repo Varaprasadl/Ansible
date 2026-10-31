@@ -11,6 +11,6 @@
   tasks:
     - name: variables from prompt
       debug:
-        msg: "{{username} password is {{password}}}"
+        msg: "{{username}} password is {{password}}"
     
   
