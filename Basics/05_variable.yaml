@@ -1,0 +1,11 @@
+- name: variables
+  hosts: local
+  vars:
+    Name: Prasad
+    Course: learing devops from file.
+
+  tasks:
+  - name: variable from file
+    debug:
+      msg:"{{Name}} {{course}}"
+      
