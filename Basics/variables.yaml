@@ -1,3 +1,4 @@
-vars:
-  course: devops
-  name: prasad
+- name: varaibles
+  vars:
+    course: devops
+    name: prasad
