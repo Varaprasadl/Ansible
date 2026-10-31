@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars_file: 
-    - variables.yaml
+  - variables.yaml
   tasks:
-    - name: variables from file
-      debug:
-        msg: "{{name}} learning {{course}}"
+  - name: variables from file
+    debug:
+      msg: "{{name}} learning {{course}}"
