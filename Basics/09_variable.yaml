@@ -4,4 +4,4 @@
   tasks:
     - name: variables from inventory
       debug:
-        msg: "{{name}} learning {{devops}}"
+        msg: "{{name}} learning {{course}}"
