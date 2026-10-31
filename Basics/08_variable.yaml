@@ -1,0 +1,8 @@
+- name: variables from another file
+  hosts: local
+  connection: local
+  - variables.yaml
+  tasks:
+    - name: variables from file
+      debug:
+        msg: "{{name}} learning {{course}}"
