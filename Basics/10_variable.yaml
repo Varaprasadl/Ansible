@@ -4,4 +4,4 @@
   tasks:
   - name: variables from cmd line
     debug:
-      msg: "{{username}}"
+      msg: "{{username}} learning {{course}}"
