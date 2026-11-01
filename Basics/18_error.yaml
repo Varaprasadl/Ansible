@@ -1,0 +1,10 @@
+- name: error handling
+  hosts: local
+  connection: local
+  become: yes
+  vars:
+  tasks:
+  - name: Check roboshop users exist or not
+    command: id roboshop
+    register: user_output
+    
