@@ -11,5 +11,5 @@
 
   - name: print out put
     debug:
-      msg:"{{user_output}}"
+      msg: "{{user_output}}"
   
