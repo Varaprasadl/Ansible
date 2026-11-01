@@ -1,0 +1,10 @@
+- name: conditions
+  hosts: local
+  connection:
+  vars:
+    given_number: 10
+  tasks:
+  - name: conditions
+    debug:
+      msg: "{{given_number}} is even"
+    when: "{{given_number}}%2==0
