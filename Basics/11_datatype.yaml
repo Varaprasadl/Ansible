@@ -18,4 +18,4 @@
   - name: variables
     debug:
       msg: |
-        name: "{{course}} : {{course | type_debug}}"
+        name: "{{course}}:{{course|type_debug}}"
