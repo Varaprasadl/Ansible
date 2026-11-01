@@ -17,4 +17,5 @@
   tasks:
   - name: variables
     debug:
-      msg: "{{course}} : {{course | type-debug}}"
+      msg: |
+        name: "{{course}} : {{course | type-debug}}"
