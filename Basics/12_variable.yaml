@@ -6,4 +6,4 @@
     debug:
       msg: |
         "{{ansible_facts['os_family']}}"
-        {{ansible_facts['default_ip4']}}
+        {{ansible_facts['default_ip4']['address']}}
