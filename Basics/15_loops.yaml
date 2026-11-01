@@ -1,0 +1,13 @@
+- name: loops
+  hosts: local
+  connection: local
+  vars:
+    name: prasad
+  tasks:
+  - name: loops
+    debug:
+      msg: "{{items}}"
+    loop:
+    - linux
+    - ansible
+    - ide
