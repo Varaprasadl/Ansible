@@ -8,4 +8,8 @@
     command: id roboshop
     register: user_output
     ignore_errors: true
+
+  - name: print out put
+    debug:
+      msg:"{{user_output}}"
   
