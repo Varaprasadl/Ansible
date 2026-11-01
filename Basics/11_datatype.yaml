@@ -18,4 +18,8 @@
   - name: variables
     debug:
       msg: |
-        name: "{{course}}:{{course|type_debug}}"
+        name: {{course}}:{{course|type_debug}}
+        duration: {{duration}}:{{duration|type_debug}}
+        live_session: {{live_session}}:{{live_session|type_debug}}
+        content: {{content}}:{{content|content_debug}}
+        traineer: {{traineer}}:{{traineer|content_debug}}
