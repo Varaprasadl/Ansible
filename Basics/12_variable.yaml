@@ -1,0 +1,7 @@
+- name: special variables
+  hosts: local
+  connection: local
+  tasks:
+  - name: special variable
+    debug:
+      msg: "{{ansible_facts}}"
