@@ -1,0 +1,20 @@
+- name: data types
+  hosts: local
+  connection: local
+  vars:
+    course: DevSecOps
+    duration: 4 months
+    live_session: yes
+    content:
+    - linux
+    - shell
+    - ansible
+    - ide
+    - teraaform
+    traineer:
+      shiva
+      10 years experiance
+  tasks:
+  - name: variables
+    debug:
+      msg: "{{course}}"
