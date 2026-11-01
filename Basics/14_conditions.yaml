@@ -1,0 +1,16 @@
+- name: installing packages
+  hosts: local
+  connection: local
+  tasks:
+  - name: install packages
+    dnf:
+      state: present
+      name: nginx
+    when: ansible_facts.os_family=="Redhat"
+
+    apt:
+      state: present
+      name: nginx
+    when: ansible_facts.os_family=="Debian"
+
+    
