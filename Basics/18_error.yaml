@@ -12,4 +12,8 @@
   - name: print out put
     debug:
       msg: "{{user_output}}"
+
+  - name: create user_output
+    command: useradd roboshop
+    when: user_output.rc!=0
   
