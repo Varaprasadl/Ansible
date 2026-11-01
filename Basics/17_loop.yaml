@@ -1,0 +1,17 @@
+- name: install package with loops
+  hosts: local
+  connection: local
+  become: yes
+  vars:
+    packages:
+    - {name: 'nginx', state: 'absent'}
+    - {name: 'mysql', state: 'present'}
+    - {name: 'htop', state: 'present'}
+    - {name: 'net-tools', state: 'absent'}
+    - {name: 'git', state: 'present'}
+  tasks:
+  - name: instal multiple packages
+    package:
+      name: "{{item.name}}"
+      state: "{{item.state}}"
+    loop: "{{packages}}" 
