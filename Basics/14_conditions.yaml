@@ -1,13 +1,14 @@
 - name: installing packages
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: install packages
     dnf:
       state: present
       name: nginx
     when: ansible_facts.os_family=="Redhat"
-    
+
   - name: install package
     apt:
       state: present
