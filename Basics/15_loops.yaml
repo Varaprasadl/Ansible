@@ -6,7 +6,7 @@
   tasks:
   - name: loops
     debug:
-      msg: "{{items}}"
+      msg: "{{item}}"
     loop:
     - linux
     - ansible
