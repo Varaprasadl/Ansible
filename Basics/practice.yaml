@@ -1,0 +1,14 @@
+- name: practice
+  host: local
+  connection: local
+  vars_prompt:
+    - name: username
+      prompt: please enter user name:
+      private: false
+    - passwd: password
+      prompt: plase enter password
+      private: true
+  tasks:
+  - name: print vars
+    debug:
+      msg: "{{username}}'s password is {{password}}"
