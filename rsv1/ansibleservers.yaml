@@ -1,10 +1,11 @@
 - name: cretae ec2 instance & r53 records
   hosts: local
   connection: local
+  
   vars:
     ami: "ami-0055977a6e828a4f4"
     domain_name: "kamesh.store"
-    instance: ['mongodb','redis']
+    instance: {'mongodb','redis'}
   tasks:
   - name: create EC2 instance
     amazon.aws.ec2_instance:
