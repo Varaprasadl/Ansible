@@ -1,6 +1,7 @@
 - name: command vs shell
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: "CMD"
     command: useradd prasad
