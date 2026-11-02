@@ -44,6 +44,6 @@
       record: "{{item.item}}.{{domain_name}}"
       type: A
       ttl: 1
-      value: "{{item.instence[0],private_ip_address}}"
-    loop: "{{ec2_output.result}}"
+      value: "{{item.instences[0].private_ip_address}}"
+    loop: "{{ec2_output.results}}"
 
