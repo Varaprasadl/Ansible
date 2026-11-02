@@ -5,7 +5,7 @@
   - name: "Create user"
     user:
       name: prasad
-      register: result
+    register: result
   
   - name: print rc
     debug:
