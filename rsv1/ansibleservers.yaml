@@ -36,4 +36,14 @@
   - name: print ec2 ec2_output
     debug:
       msg: "{{ec2_output}}"
+  
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{domain_name}}"
+      record: "{{item.item}}.{{domain_name}}"
+      type: A
+      ttl: 1
+      value: "{{item.instence[0],private_ip_address}}"
+    loop: "{{ec2_output.result}}"
 
