@@ -1,6 +1,7 @@
 - name: idampotent
   hosts: local
   connection: local
+  become: yes
   tasks:
   - name: "Create user"
     user:
