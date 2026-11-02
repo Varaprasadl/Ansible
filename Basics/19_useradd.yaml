@@ -6,6 +6,7 @@
   - name: "Create user"
     user:
       name: prasad
+      state: absent
     register: result
   
   - name: print rc
