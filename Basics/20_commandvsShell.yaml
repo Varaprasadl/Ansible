@@ -3,4 +3,4 @@
   connection: local
   tasks:
   - name: "CMD"
-    command: userradd prasad
+    command: useradd prasad
