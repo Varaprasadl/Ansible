@@ -6,7 +6,7 @@
     ami: "ami-0055977a6e828a4f4"
     domain_name: "kamesh.store"
     instance: [ mongodb ,redis ]
-    action: "create"
+    type: "create"
   tasks:
   - name: create EC2 instance
     amazon.aws.ec2_instance:
@@ -17,4 +17,4 @@
       - "roboshop-{{item}}"
       image_id: "{{ami}}"
     loop: "{{instance}}"
-    when: action=="create"
+    when: type=="create"
