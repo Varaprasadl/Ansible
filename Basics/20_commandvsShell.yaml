@@ -3,4 +3,4 @@
   connection: local
   tasks:
   - name: "CMD"
-    command: cat /ect/passwd
+    command: userradd prasad
