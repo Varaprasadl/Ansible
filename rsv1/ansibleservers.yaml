@@ -18,6 +18,7 @@
       image_id: "{{ami}}"
       state: present
     loop: "{{instance}}"
+    register: ec2_output
     when: type=="create"
 
   - name: delete EC2 instance
@@ -31,3 +32,8 @@
       state: absent
     loop: "{{instance}}"
     when: type=="delete"
+
+  - name: print ec2 ec2_output
+    debug:
+      msg: "{{ec2_output}}"
+
