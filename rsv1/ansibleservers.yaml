@@ -45,5 +45,5 @@
       type: A
       ttl: 1
       value: "{{item.instence[0],private_ip_address}}"
-    loop: "{{ec2_output.result}}"
+    loop: "{{ec2_output.results}}"
 
