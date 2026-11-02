@@ -33,9 +33,9 @@
     loop: "{{instance}}"
     when: type=="delete"
 
-  - name: print ec2 ec2_output
-    debug:
-      msg: "{{ec2_output}}"
+  # - name: print ec2 ec2_output
+  #   debug:
+  #     msg: "{{ec2_output}}"
   
   - name: create r53 records
     amazon.aws.route53:
