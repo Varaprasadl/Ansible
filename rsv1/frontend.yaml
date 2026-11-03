@@ -19,4 +19,5 @@
       state: started
       enabled: yes
 
-  
+  - name: remove default countDocuments
+    shell: rm -rf /usr/share/nginx/html/*
