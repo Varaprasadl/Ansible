@@ -34,7 +34,7 @@
   - name: create app directory
     file:
       path: /app
-      state: present
+      state: directory
 
   - name: unzip catalogue
     unarchive:
