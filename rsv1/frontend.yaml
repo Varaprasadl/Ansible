@@ -4,10 +4,13 @@
   tasks:
   - name: disable and enable nginx
     command: dnf module disable nginx -y
-    command: dnf module enable nginx:1.26 -y
 
+  - name: disable and enable nginx
+    command: dnf module enable nginx:1.26 -y
 
   - name: install nginx
     package:
       name: nginx
       state: present
+
+  - name: 
