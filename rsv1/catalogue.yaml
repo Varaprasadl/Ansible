@@ -36,6 +36,11 @@
       path: /app
       state: directory
 
+  - name: download the catalogue application
+    get_url:
+      url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/catalogue-v4.zip
+      dest: /tmp/catalogue.zip
+
   - name: unzip catalogue
     unarchive:
       src: /tmp/catalogue.zip
@@ -46,4 +51,31 @@
     community.general.npm:
       path: /app
 
+  - name: create catalogue service
+    template:
+      src: catalogue.service
+      dest: /etc/systemd/system/catalogue.service
 
+  - name: load mongo repo
+    copy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
+
+  - name: install mongodb server
+    dnf:
+      name: mongodb-mongosh
+      state: present
+
+  - name: check product community
+    command: mongosh --host {{mongodb_host}} --quiet --eval 'db.getSiblingDB("catalogue").products.countDocuments()'
+    register: product_count
+
+  - name: print product countDocuments
+    debug:
+      msg: "{{product_count}}"
+
+  
+
+
+
+  
