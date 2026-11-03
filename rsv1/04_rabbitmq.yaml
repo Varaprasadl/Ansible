@@ -9,9 +9,10 @@
 
   - name: install rabbitmq server
     dnf:
+      name:
       - erlang
       - rabbitmq
-    state: present
+      state: present
 
   - name: start and enable
     service:
