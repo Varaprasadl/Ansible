@@ -21,3 +21,25 @@
 
   - name: remove default countDocuments
     shell: rm -rf /usr/share/nginx/html/*
+
+  - name: download the frontend
+    get_url:
+      url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/frontend-v4.zip
+      dest: /tmp/frontend.zip
+
+  - name: unzip the nginx
+    unarchive:
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html/
+      remote_src: yes
+
+  - name: configure the reverse proxy
+    copy:
+      src: roboshop.conf
+      dest: /etc/nginx/default.d/roboshop.conf
+
+  - name: start the nginx service
+    service:
+      name: nginx
+      state: started
+      enabled: yes
