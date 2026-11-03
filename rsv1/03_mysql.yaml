@@ -10,7 +10,7 @@
       name: mysql-server
       state: present
     
-  - name: Start & enable the MySQL service:
+  - name: Start & enable the MySQL service
     service:
       name: mysqld
       state: started
@@ -18,4 +18,3 @@
 
   - name: set root ansible_password
     command: mysql_secure_installation --set-root-pass {{mysql_password}}
-    
