@@ -1,0 +1,9 @@
+- name: configure redis server
+  hosts: redis
+  become: yes
+  tasks:
+  - name: disbale redis
+    command:
+    - dnf module disable redis -y
+    - dnf module enable redis:7 -y
+    
