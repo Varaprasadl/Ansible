@@ -1,6 +1,6 @@
 - name: configure mongodb server
   hosts: mongodb
-  bocome: yes
+  become: yes
   tasks:
   - name: copy mongo repo
     copy:
