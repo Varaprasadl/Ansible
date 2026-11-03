@@ -78,7 +78,21 @@
     shell: mongosh --host {{mongodb_host}} < /app/db/master-data.js
     when: product_count.stdout | int ==0
 
-  
+  - name: restart the catalogue service
+    service:
+      name: catalogue
+      state: restarted
+      enabled: yes
+
+  - name: system daemon-reload
+    systemd_service:
+      daemon_reload: true
+
+  - name: catalogue application restart and enable
+    service:
+      name: catalogue
+      state: restarted
+      enabled: true
 
 
 
