@@ -13,3 +13,37 @@
       name: nodejs
       state: present
 
+  - name: create roboshop system user
+    user:
+      name: roboshop
+      create_home: yes
+      home: /app
+      shell: /sbin/nologin
+      comment: roboshop system user
+
+  - name: delete app directory
+    file:
+      path: /app
+      state: absent
+
+  - name: delete zip file
+    file:
+      path: /tmp/catalogue.zip
+      state: absent
+
+  - name: create app directory
+    file:
+      path: /app
+      state: present
+
+  - name: unzip catalogue
+    unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app
+      remote_src: yes
+
+  - name: install dependancie
+    community.general.npm:
+      path: /app
+
+
