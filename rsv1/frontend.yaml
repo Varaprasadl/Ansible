@@ -34,7 +34,7 @@
       remote_src: yes
 
   - name: configure the reverse proxy
-    copy:
+    template:
       src: roboshop.conf
       dest: /etc/nginx/default.d/roboshop.conf
 
