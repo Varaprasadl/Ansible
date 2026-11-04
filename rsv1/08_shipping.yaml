@@ -42,6 +42,7 @@
     unarchive:
       src: /tmp/shipping.zip
       dest: /app
+      remote_src: yes
 
   - name: verify mvn version without JAVA_HOME
     command: mvn -version
