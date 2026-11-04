@@ -12,7 +12,6 @@
     package:
       name: nodejs
       state: present
-      enabled: yes
   
   - name: create user system user
     user:
@@ -29,17 +28,17 @@
   
   - name: delete existing user file
     file:
-      name: /tmp/user.zip
+      path: /tmp/user.zip
       state: absent
 
   - name: create app directory
     file:
       name: /app
-      state: folder
+      state: directory
 
   - name: download the user app
     get_url: 
-      src: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/user-v4.zip
+      url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/user-v4.zip
       dest: /tmp/user.zip
 
   - name: unzip the user
@@ -54,12 +53,12 @@
 
   - name: configure service
     template:
-      sec: user.service.j2
+      src: user.service.j2
       dest: /etc/systemd/system/user.service
 
   - name: daemon servoce
     systemd_service:
-      daemon-reload: true
+      daemon_reload: true
 
   - name: resrt the user
     service:
