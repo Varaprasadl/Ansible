@@ -59,7 +59,7 @@
       daemon-reload: true
 
   - name: restart and enable
-    Servie:
+    servie:
       name: payment
       state: restarted
       enabled: yes
