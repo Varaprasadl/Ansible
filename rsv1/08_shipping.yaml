@@ -1,0 +1,94 @@
+- name: configure shipping server
+  hosts: shipping
+  become: yes
+  tasks:
+  - name: enable maven
+    command: dnf module enable maven:3.9 -y
+
+  - name: install maven and java25
+    dnf:
+      name:
+        - maven
+        - java-25-openjdk-devel
+        - maven-openjdk25
+        - mysql
+      state: present
+  
+  - name: create roboshop system user
+    user: 
+      name: roboshop
+      create_home: false
+      home: /app
+      system: true
+      shell: /sbin/nologin
+      comment: roboshop system user
+
+  - name: remove existing app directory
+    file:
+      path: /app
+      state: absent
+
+  - name: remove the shipping zip
+    file:
+      path: /tmp/shipping.zip
+      state: absent
+  
+  - name: download the shipping application
+    get_url:
+      url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/shipping-v4.zip
+      dest: /tmp/shipping.zip
+  
+  - name: unzip the shipping applicaation
+    unarchive:
+      src: /tmp/shipping.zip
+      dest: /app
+
+  - name: verify mvn version without JAVA_HOME
+    command: mvn -version
+    args:
+      chdir: /app
+    register: mvn_default
+    
+
+  - name: print java version
+    debug:
+      msg: "{{java_version}}"
+
+  - name: build application
+    command: mvn clean package
+    args:
+      chdir: /app
+
+  - name: move shipping.jar 
+    command: mv target/shipping.jar shipping.jar
+    args:
+      chdir: app
+
+  - name: get the database countDocuments
+    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 -e "SELECT COUNT(*) FROM cities.cities;"
+    register: cities_count
+    ignore_errors: true
+
+  - name: print cities count
+    debug:
+      msg: cities_count
+  
+  - name: load database
+    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/app-user.sql
+    when: cities_count.rc != 0 or cities_count.stdout | int == 0
+
+  - name: copy the shipping file
+    template:
+      src: shipping.service.j2
+      dest: /etc/systemd/system/shipping.service
+      remote_src: yes
+
+  - name: Load and start the service
+    systemd_service:
+      daemon-reload: true
+  
+  - name: restart shipping
+    service:
+      name: shipping
+      state: restarted
+      enabled: yes
