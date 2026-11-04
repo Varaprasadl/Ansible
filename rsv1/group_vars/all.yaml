@@ -4,6 +4,11 @@ ansible_password: DevOps321
 mongodb_host: mongodb.kamesh.store
 redis_host: redis.kamesh.store
 mysql_host: mysql.kamesh.store
-rabbitmq: rabbitmq.kamesh.store
+rabbitmq_host: rabbitmq.kamesh.store
+catalogue_host: catalogue.kamesh.store
+user_host: user.kamesh.store
+cart_host: cart.kamesh.store
+shipping_host: shipping.kamesh.store
+payment_host: payment.kamesh.store
 
 

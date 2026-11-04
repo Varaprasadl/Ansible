@@ -77,7 +77,7 @@
 
   - name: print cities count
     debug:
-      msg: cities_count
+      msg: "{{cities_count}}"
   
   - name: load database
     shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/app-user.sql
@@ -89,7 +89,7 @@
       dest: /etc/systemd/system/shipping.service
       remote_src: yes
 
-  - name: Load and start the service
+  - name: daemon-reload
     systemd_service:
       daemon-reload: true
   
