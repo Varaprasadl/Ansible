@@ -7,7 +7,7 @@
       name:
       - python3.14
       - python3.14-pip
-    state: present
+      state: present
 
   - name: create roboshop system user
     user:
@@ -42,6 +42,7 @@
     unarchive:
       src: /tmp/payment.zip
       dest: /app
+      remote_src: yes
 
   - name: install dependenceies
     pip:
