@@ -58,7 +58,7 @@
 
   - name: print java version
     debug:
-      msg: "{{java_version}}"
+      msg: "{{mvn_default}}"
 
   - name: build application
     command: mvn clean package
