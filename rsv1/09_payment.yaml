@@ -45,10 +45,10 @@
       remote_src: yes
 
   - name: install dependenceies
-    pip:
+    ansible.builtin.pip:
       requirements: /app/requirements.txt
       virtualenv: /app/.venv
-      virtualenv_command: python3.14 -m vene
+      virtualenv_command: python3.14 -m venv
  
   - name: configure systemd service
     template:
