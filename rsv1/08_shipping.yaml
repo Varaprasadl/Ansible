@@ -71,7 +71,7 @@
       chdir: /app
 
   - name: get the database countDocuments
-    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 -e "SELECT COUNT(*) FROM cities.cities;"
+    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 -N -B -e "SELECT COUNT(*) FROM cities.cities;"
     register: cities_count
     ignore_errors: true
 
