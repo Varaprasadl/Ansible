@@ -36,8 +36,8 @@
   - name: create app directory
     file:
       path: /app
-      state: present
-      
+      state: directory
+
   - name: download the shipping application
     get_url:
       url: https://raw.githubusercontent.com/daws-92s/roboshop-documentation/refs/heads/main/artifacts/shipping-v4.zip
