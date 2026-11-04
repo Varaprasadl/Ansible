@@ -54,7 +54,7 @@
   - name: configure cart application
     template:
       src: cart.service.j2
-      dest: vim /etc/systemd/system/cart.service
+      dest: /etc/systemd/system/cart.service
 
   - name: system daemon reload
     systemd_service:
