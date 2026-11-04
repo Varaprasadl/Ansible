@@ -48,7 +48,7 @@
       remote_src: yes
 
   - name: install nodejs dependancies
-    coummunity.general.npm:
+    community.general.npm:
       path: /app
 
   - name: configure cart application
