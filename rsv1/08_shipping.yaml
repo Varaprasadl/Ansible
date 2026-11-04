@@ -68,7 +68,7 @@
   - name: move shipping.jar 
     command: mv target/shipping.jar shipping.jar
     args:
-      chdir: app
+      chdir: /app
 
   - name: get the database countDocuments
     shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 -e "SELECT COUNT(*) FROM cities.cities;"
