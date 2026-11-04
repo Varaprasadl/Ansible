@@ -47,8 +47,8 @@
     pip:
       requirements: /app/requirements.txt
       virtualenv: /app/.venv
-      virtualenv_command: python3.14 -m
-
+      virtualenv_command: python3.14 -m vene
+ 
   - name: configure systemd service
     template:
       src: payment.service.j2
