@@ -80,8 +80,11 @@
       msg: "{{cities_count}}"
   
   - name: load database
-    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/app-user.sql
+    shell: mysql -h "{{ mysql_host }}" -u root -p{{ mysql_root_password }} < /app/db/master-data.sql
     when: cities_count.rc != 0 or cities_count.stdout | int == 0
+
+  - name: app user
+    shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/app-user.sql
 
   - name: copy the shipping file
     template:
