@@ -73,5 +73,10 @@
   - name: load the cities count
     shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/master-data.sql
     when: cities_count.rc != 0 or cities_count.stdout | int == 0
+    register: taskout
     tags:
     - mysql
+
+  - name: print cities count
+    debug:
+      msg: "{{taskout}}"
