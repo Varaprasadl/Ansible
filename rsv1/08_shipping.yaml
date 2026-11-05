@@ -69,6 +69,8 @@
   - name: print cities count
     debug:
       msg: "{{cities_count}}"
+    tags:
+    - mysql
   
   - name: load the cities count
     shell: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/master-data.sql
