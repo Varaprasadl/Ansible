@@ -62,9 +62,16 @@
   - name: check the cities count
     command: mysql -h {{mysql_host}} -uroot -pRoboShop@1 -N -B -e "SELECT COUNT(*) FROM cities.cities;"
     register: cities_count
+    ignore_errors: true
     tags:
     - mysql
 
-
+  - name: print cities count
+    debug:
+      msg: "{{cities_count}}"
   
-  
+  - name: load the cities count
+    command: mysql -h {{mysql_host}} -uroot -pRoboShop@1 < /app/db/master-data.sql
+    when: cities_count.rc != 0 or cities_count.stdout | int == 0
+    tags:
+    - mysql
