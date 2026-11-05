@@ -80,3 +80,5 @@
   - name: print cities count
     debug:
       msg: "{{taskout}}"
+    tags:
+    - mysql
